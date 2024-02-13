@@ -31,6 +31,9 @@ pageSkipper.forEach((skipper) => {
         } 
         if (skipper.id === 'previous-button') {
             page--
+            if (page < 1) {
+                page = 1;
+            }
             getMovies(API_URL  + page);
         }
     });
