@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700');
+
+
+:root {
+    --text-color: #010b26;
+
+}
+body {
+	background: #D7E4C0;
+	font-family: 'Arimo', Arial, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: var(--text-color);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+a {
+	text-decoration:none;
+	color:inherit;
+}
+
+a:hover {
+	color:#D7E4C0;
+}
+nav {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;	
+	padding: 1rem 2rem;
+	background: #B3A398;
+	box-shadow: 0px 6px 18px rgba(0,0,0,.1);
+}
+
+nav a {
+	color: #010b26;
+	font-size: 4rem;
+}
+
+.container {
+	padding: 2rem;
+	border-radius: 2rem;
+	margin: 3em;
+	background-color: #C6DCBA;
+	display: flex;
+	flex-direction: row;
+}
+.container a:hover {
+	color: #B3A398;
+
+}
+.movie-img {
+	width: 45%;
+	height: auto;
+}
+.movie-img img {
+	border-radius: 1rem;
+	width: 100%;
+	height: auto;
+}
+.movie-content {
+	width: 100%;
+	display: flex;
+	gap: 2rem;
+	flex-direction: column;
+	padding: 2rem 2rem;
+	margin: 0;
+}
+.movie-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.movie-title {
+	font-size: 5rem;
+	margin: 0;
+	display: table-cell;
+}
+
+
+/* MOVIE TICKER */
+
+.ticket-container {
+    margin-top: 2rem;
+    align-self: center;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.seat {
+    user-select: none;
+    background-color: #2e2e2e;
+    height: 2rem;
+    width: 2rem;
+    margin: 3px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e2e2e;
+    
+}
+
+
+.seat.selected {
+    background-color: #f9a825;
+    color: aliceblue;
+}
+
+.seat.occupied {
+    background-color: #4b515d;
+    color: aliceblue;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: aliceblue;
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.row {
+    display: flex;
+}
+
+.screen {
+    background-color: #ffffff;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.ticket-container p{
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+  
+.ticket-container p span{
+    color: #f9a825;
+    font-weight: 700;
+}
+
+.checkout-btn {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background-color: #f9a825;
+    color: #010b26;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+.checkout-btn:hover {
+    transition: 700ms;
+    background-color: #010b26;
+    color:  #f9a825;
+    transform: scale(1.1);
+}

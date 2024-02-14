@@ -132,3 +132,25 @@ nav a {
 	font-size: 1.5rem;
 	color: rgb(43, 43, 43);
 }
+.order-container{
+	margin-top: 3rem;
+	align-self: center;
+}
+
+#order-button{
+	background-color: #B3A398;
+	color: #010b26;
+	border: none;
+	padding: 1rem 2rem;
+	border-radius: 1rem;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+#order-button:hover{
+	transition: 300ms linear;
+	scale: 1.1;
+	background-color: #010b26;
+	color: #D7E4C0;
+}
+

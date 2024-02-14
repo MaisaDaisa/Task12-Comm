@@ -21,20 +21,25 @@ console.log(id)
 const container = document.querySelector('.container');
 const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`;
 
-if (id) {
-   
-}
-
 
 async function getMovies(url) {
     const resp = await fetch(url);
     const respData = await resp.json();
     console.log(respData);
     showMovies(respData);
+    const ticketButton = document.getElementById('order-button')
+    console.log(ticketButton)
+    ticketButton.addEventListener('click', () => {
+        localStorage.setItem('movie', JSON.stringify(respData));
+    })
+    
 }
 if (id) {
     getMovies(API_URL);
 }
+
+
+
 
 
 function showMovies(movie) {
@@ -98,8 +103,14 @@ function showMovies(movie) {
                         ${movieDesc}
                     </p>
                 </div>
+                <div class="order-container">
+                    <a href="./movie_order.html" target="_blank">
+                        <button id="order-button">Order Tickets</button>
+                    </a>
+                </div>
             </div>
           `
 
         container.appendChild(movieElm);
 }
+
