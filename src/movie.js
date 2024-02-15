@@ -1,4 +1,3 @@
-
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
 // {"adult": false,
@@ -16,49 +15,43 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 // "vote_count":904}
 
 const params = window.location.search;
-const id = new URLSearchParams(params).get('id');
-console.log(id)
-const container = document.querySelector('.container');
+const id = new URLSearchParams(params).get("id");
+console.log(id);
+const container = document.querySelector(".container");
 const API_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`;
 
-
 async function getMovies(url) {
-    const resp = await fetch(url);
-    const respData = await resp.json();
-    console.log(respData);
-    showMovies(respData);
-    const ticketButton = document.getElementById('order-button')
-    console.log(ticketButton)
-    ticketButton.addEventListener('click', () => {
-        localStorage.setItem('movie', JSON.stringify(respData));
-    })
-    
+	const resp = await fetch(url);
+	const respData = await resp.json();
+	console.log(respData);
+	showMovies(respData);
+	const ticketButton = document.getElementById("order-button");
+	console.log(ticketButton);
+	ticketButton.addEventListener("click", () => {
+		localStorage.setItem("movie", JSON.stringify(respData));
+	});
 }
 if (id) {
-    getMovies(API_URL);
+	getMovies(API_URL);
 }
 
-
-
-
-
 function showMovies(movie) {
-    container.innerHTML = "";
-        const movieTitle = movie.original_title;
-        const moviePoster = movie.poster_path;
-        const movieVote = movie.vote_average;
-        const movieId = movie.id;
-        const movieLang = movie.original_language;
-        const movieAdult = movie.adult ? "Yes" : "No";
-        const movieDesc = movie.overview;
-        const movieGenres = movie.genres;
+	container.innerHTML = "";
+	const movieTitle = movie.original_title;
+	const moviePoster = movie.poster_path;
+	const movieVote = movie.vote_average;
+	const movieId = movie.id;
+	const movieLang = movie.original_language;
+	const movieAdult = movie.adult ? "Yes" : "No";
+	const movieDesc = movie.overview;
+	const movieGenres = movie.genres;
 
-        const date = new Date(movie.release_date)
-        const movieElm = document.createElement("div");
-        
-        container.innerHTML += `
+	const date = new Date(movie.release_date);
+	const movieElm = document.createElement("div");
+
+	container.innerHTML += `
             <div class="movie-img">
-                <img src="${IMG_PATH+moviePoster}" alt="">
+                <img src="${IMG_PATH + moviePoster}" alt="">
             </div>
             <div class="movie-content">
                 <div class="movie-content-header">
@@ -68,22 +61,36 @@ function showMovies(movie) {
                 </div>
                 <div class="genre-categories">
                     ${
-                        movieGenres.map((genre) => {
-                            return `<span class="genre">${genre.name}</span>`
-                        }).join(' ')
+                                            movieGenres.map((genre) => {
+												return `<span class="genre">${genre.name}</span>`;
+											})
+											.join(" ")
                     }
                 </div>
                 <div class="movie-info">
                     <div class="info-section">
                         <label>Release Date</label>
-                        <span>${date.getDate() + " " + 
-                        (["January", "February", 
-                        "March", "April", 
-                        "May", "June", "July", 
-                        "August", "September", 
-                        "October", "November", 
-                        "December"][date.getMonth()])
-                        + " " + date.getFullYear()}</span>
+                        <span>${
+													date.getDate() +
+													" " +
+													[
+														"January",
+														"February",
+														"March",
+														"April",
+														"May",
+														"June",
+														"July",
+														"August",
+														"September",
+														"October",
+														"November",
+														"December",
+													][date.getMonth()] +
+													" " +
+													date.getFullYear()
+							}
+                        </span>
                     </div>
                     <div class="info-section">
                         <label>Review</label>
@@ -109,8 +116,7 @@ function showMovies(movie) {
                     </a>
                 </div>
             </div>
-          `
+          `;
 
-        container.appendChild(movieElm);
+	container.appendChild(movieElm);
 }
-
